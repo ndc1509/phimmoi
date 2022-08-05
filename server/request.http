@@ -1,0 +1,29 @@
+#
+GET http://localhost:5000/api/v1/auth/facebook
+
+###
+GET http://localhost:5000/api/v1/auth/google
+###
+GET http://localhost:5000/api/v1/auth/login/success
+
+###
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "username": "Nguyen Van C",
+    "email": "temp@gmail.com",
+    "password": "mypassword"
+}
+###
+POST http://localhost:5000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "ndc123@gmail.com",
+    "password": "mypassword"
+}
+###
+POST http://localhost:5000/api/v1/auth/logout
+Content-Type: application/json
+Authorization: Bearer 

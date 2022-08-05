@@ -1,0 +1,12 @@
+.search-results {
+    padding-top: 68px;
+    background-color: #141414;
+    min-height: 100vh;
+}
+
+.search-results__for {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 64px;
+}

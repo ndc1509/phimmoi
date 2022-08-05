@@ -1,0 +1,242 @@
+.login-body {
+    background-color: transparent;
+    margin: 0 auto -236px;
+    max-width: 450px;
+    min-height: 100vh;
+    padding: 0 5%;
+}
+
+.login-body::before {
+    content: "";
+    display: block;
+    height: 91px;
+}
+
+.login-body::after {
+    content: "";
+    display: block;
+    height: 236px;
+}
+
+.login-card {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    box-sizing: border-box;
+    color: white !important;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 90px;
+    min-height: 660px;
+    min-width: 380px;
+    padding: 60px 68px 40px;
+    width: 100%;
+}
+
+/* HEADER */
+.login-card__header {
+    padding: 0 !important;
+    margin-bottom: 28px;
+}
+
+.login-card__header > div > span {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 37px;
+    letter-spacing: 0;
+}
+
+/* CONTENT */
+.login-card__content {
+    padding: 0 !important;
+    flex-grow: 1;
+}
+
+.login-card__login-error {
+    min-height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #e87c03 !important;
+    color: white !important;
+    display: table !important;
+    font-size: 14px !important;
+    margin-bottom: 16px;
+    padding: 0 !important;
+}
+
+.login-card__login-error > div {
+    display: table-cell;
+    padding: 10px 20px;
+    vertical-align: middle;
+}
+
+/* FORM INPUT */
+.login-card__content > form > .MuiFormControl-root {
+    padding-bottom: 16px;
+}
+
+.login-card__content > form > .MuiFormControl-root > .MuiFilledInput-root {
+    background-color: #333333;
+    border-radius: 4px;
+    color: white;
+}
+
+.login-card__content
+    > form
+    > .MuiFormControl-root
+    > .MuiFilledInput-root:hover {
+    background-color: #333333;
+}
+
+.login-card__content
+    > form
+    > .MuiFormControl-root
+    > .MuiFilledInput-root
+    > input {
+    box-sizing: border-box;
+    height: 50px;
+    padding: 16px 20px 0 20px;
+}
+
+.login-card__content
+    > form
+    > .MuiFormControl-root
+    > .MuiFilledInput-root.Mui-focused {
+    background-color: #454545 !important;
+}
+
+.login-card__content > form > .MuiFormControl-root > .MuiFormHelperText-root {
+    color: #e87c03;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0;
+    margin: 0;
+    margin-bottom: -6px;
+    padding: 6px 3px;
+}
+.login-card__content > form > .MuiFormControl-root > .MuiInputLabel-root {
+    color: #8c8c8c !important;
+    line-height: 18px !important;
+    left: 8px !important;
+}
+
+.login-card__content
+    > form
+    > .MuiFormControl-root
+    > .MuiInputLabel-root.Mui-focused {
+    color: #8c8c8c !important;
+}
+
+/* LOGIN ERROR */
+.login-card__input::after,
+.login-card__input.Mui-focused::after {
+    border: none !important;
+}
+
+.login-card__input--error::after,
+.login-card__input--error.Mui-focused::after {
+    border-bottom: 2px solid #e87c03 !important;
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    height: 6px !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* LOGIN BUTTON */
+.login-card__login-btn {
+    background-color: rgb(229, 9, 20) !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    height: 48px;
+    letter-spacing: 0 !important;
+    margin: 24px 0 12px 0 !important;
+    text-transform: none !important;
+}
+
+/* HELPER */
+.login-card__help {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* REMEMBER ME */
+.login-card__help > label > .MuiCheckbox-root {
+    color: #737373;
+    padding-bottom: 0;
+    padding-top: 0;
+    padding-right: 2px;
+}
+
+.login-card__help > label > .MuiTypography-root {
+    color: #b3b3b3;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0;
+    vertical-align: middle;
+}
+
+.login-card__help > label > .MuiCheckbox-root > svg {
+    font-size: 20px;
+}
+
+/* NEED HELP */
+.login-card__help > p {
+    line-height: 15px !important;
+}
+
+.help-anchor {
+    color: #b3b3b3;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-decoration: none;
+}
+
+.help-anchor:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* ACTION */
+.login-card__action {
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+}
+
+/* SIGN UP */
+.login-card__sign-up {
+    color: #737373;
+    letter-spacing: 0 !important;
+    text-align: center;
+    width: 100%;
+}
+
+.sign-up-anchor {
+    color: #fff;
+    text-decoration: none !important;
+}
+
+.sign-up-anchor:hover {
+    text-decoration: underline !important;
+}
+
+/* DIVIDER */
+.login-card__divider {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.login-card__divider::after,
+.login-card__divider::before,
+.login-card__divider span div,
+.login-card__divider span div span {
+    border-color: #b3b3b3 !important;
+    color: #b3b3b3 !important;
+}
+
+/* SOCIAL LOGIN */
+.login-card__social-login {
+    margin: 0 !important;
+}

@@ -1,0 +1,149 @@
+.register-body {
+    background-color: transparent;
+    margin: 0 auto -236px;
+    max-width: 450px;
+    min-height: 100vh;
+    padding: 0 5%;
+}
+
+.register-body::before {
+    content: "";
+    display: block;
+    height: 91px;
+}
+
+.register-body::after {
+    content: "";
+    display: block;
+    height: 236px;
+}
+
+/* CARD */
+.register-card {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    box-sizing: border-box;
+    color: white !important;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 90px;
+    min-height: 660px;
+    min-width: 380px;
+    padding: 60px 68px 40px;
+    width: 100%;
+}
+
+/* HEADER */
+.register-card__header {
+    margin-bottom: 28px;
+    padding: 0 !important;
+}
+
+.register-card__header > div > span {
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: 37px;
+}
+
+/* CONTENT */
+.register-card__content {
+    padding: 0 !important;
+}
+
+/* FORM INPUT */
+.register-card__content > form > .MuiFormControl-root {
+    padding-bottom: 16px;
+}
+
+.register-card__content > form > .MuiFormControl-root > .MuiFilledInput-root {
+    background-color: #333333;
+    border-radius: 4px;
+    color: white;
+}
+
+.register-card__content
+    > form
+    > .MuiFormControl-root
+    > .MuiFilledInput-root:hover {
+    background-color: #333333;
+}
+
+.register-card__content
+    > form
+    > .MuiFormControl-root
+    > .MuiFilledInput-root
+    > input {
+    box-sizing: border-box;
+    height: 50px;
+    padding: 16px 20px 0 20px;
+}
+
+.register-card__content
+    > form
+    > .MuiFormControl-root
+    > .MuiFilledInput-root.Mui-focused {
+    background-color: #454545 !important;
+}
+
+.register-card__content > form > .MuiFormControl-root > .MuiFormHelperText-root {
+    color: #e87c03;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0;
+    margin: 0;
+    margin-bottom: -6px;
+    padding: 6px 3px;
+}
+.register-card__content > form > .MuiFormControl-root > .MuiInputLabel-root {
+    color: #8c8c8c !important;
+    line-height: 18px !important;
+    left: 8px !important;
+}
+
+.register-card__content
+    > form
+    > .MuiFormControl-root
+    > .MuiInputLabel-root.Mui-focused {
+    color: #8c8c8c !important;
+}
+
+/* REGISTER ERROR */
+.register-card__input::after,
+.register-card__input.Mui-focused::after {
+    border: none !important;
+}
+
+.register-card__input--error::after,
+.register-card__input--error.Mui-focused::after {
+    border-bottom: 2px solid #e87c03 !important;
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    height: 6px;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* REGISTER BUTTON */
+.register-card__register-btn {
+    background-color: rgb(229, 9, 20) !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    height: 48px;
+    margin: 24px 0 12px !important;
+    text-transform: none !important;
+}
+
+/* OTHER */
+.register-card__sign-in {
+    color: #737373;
+    text-align: center;
+    width: 100%;
+}
+
+.register-card__sign-in > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.register-card__sign-in > a:hover {
+    text-decoration: underline !important;
+}

@@ -1,0 +1,33 @@
+.movie-grid {
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  
+}
+
+.movie-grid-container {
+    background-color: #141414;
+    min-height: 100vh;
+}
+
+.movie-grid__title {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    height: 68px;
+    padding-left: 70px;
+    position: -webkit-sticky;
+    top: 0;
+    position: sticky;
+    display: flex;
+    align-items: center;
+}
+
+.circle-loading {
+    height: 64px;
+    text-align: center;
+}

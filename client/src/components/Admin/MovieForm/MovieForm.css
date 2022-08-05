@@ -1,0 +1,42 @@
+.movie-form {
+  width: 90%;
+  padding: 16px;
+}
+
+.movie-form > form > div {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  column-gap: 100px;
+  row-gap: 32px;
+  width: 200px;
+}
+
+.movie-form-submit {
+  margin: 32px !important;
+}
+
+.movie-form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.seasons {
+    grid-column: 1/5;
+    width: 100%;
+}
+
+.seasons > .season {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.episode-form {
+  border: 1px solid black;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(6, auto)
+}
+
+.episode-form > div  {
+    width: 150px;
+}

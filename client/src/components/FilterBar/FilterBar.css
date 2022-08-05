@@ -1,0 +1,30 @@
+.filter-bar {
+    height: 68px;
+    background-color: #141414;
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+
+.filter-bar__title {
+    padding-left: 70px;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+.filter-bar__select > div {
+    border: 1px solid white !important;
+    color: white !important;
+    width: 150px;
+    margin-left: 32px;
+}
+
+.filter-bar__select fieldset  {
+    border: none;
+}

@@ -1,0 +1,33 @@
+.details {
+    background-color: #141414;
+    width: 100%;
+}
+
+.details-header {
+    position: relative;
+    padding-bottom: 50%;
+    width: 100%;
+}
+
+.details-body {
+    width: 100%;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background-color: rgb(24, 24, 24);
+}
+
+.details-body__container {
+    border-radius: 32px;
+    padding: 48px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 70%;
+    background-color: #242424;
+}
+
+.details__circle-loading{
+    height: calc(100vh - 261px) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

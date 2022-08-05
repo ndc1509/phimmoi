@@ -1,0 +1,146 @@
+.preview {
+    z-index: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 56.25vw;
+    max-height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.preview__video {
+    width: 100%;
+    height: 100%;
+}
+
+.preview__video > video {
+    object-fit: fill !important;
+    overflow: hidden;
+}
+
+.preview-layer {
+    background-color: transparent;
+    background-image: linear-gradient(
+        180deg,
+        hsla(0, 0%, 8%, 0) 0,
+        hsla(0, 0%, 8%, 0.15) 15%,
+        hsla(0, 0%, 8%, 0.35) 29%,
+        hsla(0, 0%, 8%, 0.58) 44%,
+        #141414 68%,
+        #141414
+    );
+    background-position: 0 top;
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    bottom: -1px;
+    height: 14.7vw;
+    opacity: 1;
+    top: auto;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+}
+
+.preview__backdrop {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: visibility 0.4s, opacity 0.4s;
+    opacity: 1;
+}
+
+.preview__backdrop--hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.preview__backdrop > img,
+.preview__backdrop--hidden > img {
+    width: 100%;
+    height: 100%;
+}
+
+.preview-controller__container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(0deg, rgb(24, 24, 24), transparent 50%);
+    z-index: 1;
+}
+
+.preview-controller--wrapper {
+    box-sizing: border-box;
+    background-color: transparent;
+    position: absolute;
+    left: 60px;
+    bottom: 15%;
+    width: 40%;
+    z-index: 2;
+}
+
+.preview-controller--wrapper > span > img {
+    margin-bottom: 16px;
+}
+
+.movie-logo--playing {
+    transform: scale(0.6, 0.6);
+    transform-origin: left bottom;
+    transition: 3s all ease;
+}
+
+.preview-controller {
+    min-height: 2em;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.preview-controller__play {
+    color: black !important;
+    background-color: white !important;
+    margin: 4px !important;
+    text-transform: none !important;
+    font-weight: bold !important;
+    min-height: 32px;
+}
+
+.preview-controller__play:hover {
+    background-color: #e6e6e6 !important;
+}
+
+.preview-controller__play > a {
+    text-decoration: none;
+}
+
+.preview-controller__round-btn--wrapper {
+    margin: 4px;
+    position: relative;
+}
+
+.video-sound {
+    background-color: rgba(42, 42, 42, 0.6);
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 15%;
+    right: 48px;
+    margin: 4px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.video-sound > button {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.video-sound:hover,
+.video-sound:hover > button {
+    border-color: white !important;
+    color: white !important;
+}

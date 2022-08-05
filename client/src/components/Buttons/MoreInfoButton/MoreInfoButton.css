@@ -1,0 +1,15 @@
+.moreinfo-btn{ 
+    background-color: rgba(109, 109, 110, 0.7) !important;
+    color: white !important;
+    text-transform: none !important;
+    padding: 8px;
+    font-weight: bold !important;
+    min-height: 32px;
+    cursor: pointer;
+    margin: 4px 24px !important;
+}
+
+.moreinfo-btn:hover{
+    background-color: rgba(109, 109, 110, 0.4) !important;
+}
+

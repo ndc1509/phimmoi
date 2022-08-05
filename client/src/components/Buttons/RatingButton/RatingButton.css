@@ -1,0 +1,36 @@
+.rating-star {
+    position: absolute;
+    background-color: rgba(42, 42, 42, 0.6) !important;
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    color: white !important;
+}
+
+.rating-star:hover {
+    border-color: white !important;
+}
+
+.rating-bar {
+    display: block;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 3;
+    background-color: rgb(35, 35, 35) !important;
+    border-radius: 19px;
+    opacity: 1;
+    transition: visibility 0.4s, opacity 0.4s;
+}
+
+.rating-bar--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.rating-bar > label > span {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 38px;
+    color: white;
+}

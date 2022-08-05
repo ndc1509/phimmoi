@@ -1,0 +1,15 @@
+.avatar__icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 4px !important;
+}
+
+.avatar__menu{
+    position: relative;
+}
+
+.avatar__menu__item__icon{
+    width: 24px !important;
+    height: 24px !important;
+    color: black;
+}

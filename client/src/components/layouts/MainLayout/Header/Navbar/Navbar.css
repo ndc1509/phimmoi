@@ -1,0 +1,30 @@
+.header__navbar {
+    display: flex;
+}
+
+.nav-item--home{
+    font-weight: bold;
+}
+
+.main-header__navbar__nav-item {
+    color: #e5e5e5 !important;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    letter-spacing: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    line-height: 1.2;
+}
+
+.main-header__navbar__nav-item:hover{
+    color: #b3b3b3 !important;
+    transition: color 0.4s;
+}
+
+.nav-item--active {
+    font-weight: bold;
+}
+

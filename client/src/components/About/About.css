@@ -1,0 +1,33 @@
+.about {
+  height: 100%;
+  padding-bottom: 32px;
+  background-color: inherit;
+  color: white;
+}
+
+.about__header {
+  margin-top: 48px;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.about__title {
+  font-weight: bold;
+}
+
+.about__item {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.about__item > :first-child {
+  color: #777;
+}
+
+#content-rating {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  line-height: 20px;
+  padding-left: 6px;
+  padding-right: 6px;
+}

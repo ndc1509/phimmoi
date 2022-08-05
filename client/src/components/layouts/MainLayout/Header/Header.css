@@ -1,0 +1,73 @@
+.main-header {
+    top: 0;
+    height: 68px !important;
+    position: relative;
+    background-color: transparent !important;
+    transition: 0.4s background-color ease !important;
+    box-shadow: none !important;
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.7) 10%,
+        transparent
+    );
+}
+
+.main-header--active {
+    background-color: rgb(20, 20, 20) !important;
+    position: fixed;
+    height: 68px !important;
+    transition: 0.4s background-color ease !important;
+    box-shadow: none !important;
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.7) 10%,
+        transparent
+    );
+}
+
+.main-header > .MuiToolbar-root {
+    padding-left: 60px;
+    padding-right: 60px;
+    height: 100%;
+}
+
+.main-header--active > .MuiToolbar-root {
+    padding-left: 60px;
+    padding-right: 60px;
+    height: 100%;
+}
+
+.main-header__logo {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.main-header__secondary-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.notification > button {
+    color: white !important;
+}
+
+.notification > button > svg {
+    width: 26px;
+    height: 26px;
+}
+
+.secondary-nav__item__sign-in-btn {
+    text-transform: none !important;
+    background-color: #e50914 !important;
+    letter-spacing: 0;
+}
+
+.secondary-nav__item__sign-in-btn > a {
+    color: white !important;
+    text-decoration: none;
+}

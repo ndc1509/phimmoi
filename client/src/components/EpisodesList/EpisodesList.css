@@ -1,0 +1,70 @@
+.episodes {
+    background-color: inherit;
+    color: white;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.episodes__title :first-child {
+    margin-bottom: 10px;
+    margin-top: 24px;
+    display: inline-block;
+    font-size: 30px;
+}
+
+.episodes__title :nth-child(2) {
+    color: #a3a3a3;
+    margin-left: 9px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    border-left: 1px solid #a3a3a3;
+}
+
+.season-select > div{
+    color: white;
+}
+.season-select > div > svg {
+    color: white !important;
+}
+.season-select > div > fieldset {
+    border-color: rgb(77, 77, 77) !important;
+}
+
+.season-year {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.season-details--wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.season-plot {
+    width: 50%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.season-episode {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    row-gap: 16px;
+}
+
+/* .MuiList-root {
+    color: white !important;
+    background-color: #303030 !important;
+    border-color: white;
+
+}
+
+.MuiList-root > li.Mui-selected:hover,
+.MuiList-root > li.Mui-selected {
+    background-color: grey !important;
+} */
+
+

@@ -1,0 +1,19 @@
+.trailers {
+    background-color: inherit;
+    color: white;
+}
+
+.trailers__header {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 48px;
+    margin-bottom: 20px;
+}
+
+.trailers__body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    row-gap: 16px;
+}
+
