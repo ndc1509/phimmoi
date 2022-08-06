@@ -139,7 +139,7 @@ exports.AuthController = {
           secure: true,
           maxAge: 24 * 3600 * 1000,
         })
-        .redirect("http://localhost:3000");
+        .redirect("https://ndc-phimmoi.netlify.app");
     } catch (error) {
       next(error);
     }
@@ -160,7 +160,7 @@ exports.AuthController = {
           secure: true,
           maxAge: 24 * 3600 * 1000,
         })
-        .redirect("http://localhost:3000");
+        .redirect("https://ndc-phimmoi.netlify.app");
     } catch (error) {
       next(error);
     }

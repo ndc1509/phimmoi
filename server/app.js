@@ -55,7 +55,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://ndc-phimmoi.netlify.app",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
