@@ -1,12 +1,15 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Add, Refresh } from "@mui/icons-material";
 import { Box, Button, Fab } from "@mui/material";
-import { useSnackbar } from "notistack";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
-import { getDataForAddingMovie, postMovie, putMovie } from "../../../api/adminApi";
+import {
+  getDataForAddingMovie,
+  postMovie,
+  putMovie,
+} from "../../../api/adminApi";
 import useAppSnackBar from "../../../hooks/useAppSnackBar";
 import { Country, Genre, Movie, Person } from "../../../interface";
 import FieldArraySeasons from "./Custom/FieldArraySeasons";
@@ -143,15 +146,15 @@ const defaultValues: Movie = {
 };
 
 type MovieFormProps = {
-  values?: Movie | null
-}
+  values?: Movie | null;
+};
 
-const MovieForm = ({values}: MovieFormProps) => {
+const MovieForm = ({ values }: MovieFormProps) => {
   const methods = useForm({
     defaultValues: values || defaultValues,
     resolver: yupResolver(validationSchema),
   });
-  const showSnackbar = useAppSnackBar()
+  const showSnackbar = useAppSnackBar();
   const [directorData, setDirectorData] = React.useState<Person[]>([]);
   const [actorData, setActorData] = React.useState<Person[]>([]);
   const [genresData, setGenresData] = React.useState<Genre[]>([]);
@@ -192,9 +195,8 @@ const MovieForm = ({values}: MovieFormProps) => {
   const submitMovie = async (movie: Movie) => {
     try {
       const data = values ? await putMovie(movie) : await postMovie(movie);
-      if (data.success)
-        showSnackbar(data.msg, "success")
-      else showSnackbar(data.msg, "error")
+      if (data.success) showSnackbar(data.msg, "success");
+      else showSnackbar(data.msg, "error");
       return data;
     } catch (error) {
       console.log(error);

@@ -6,21 +6,19 @@ const {
 } = require("../middlewares/auth.middleware");
 
 const { AuthController } = require("../controllers/auth/auth.controller");
-//POST register
+//Register
 router.post("/register", AuthController.register);
 
-//POST refresh token
 //Verify refresh token then give new one for user
 router.post("/token", verifyRefreshToken, AuthController.refreshToken);
 
-//POST logout
 //Verify token then logout
 router.post("/logout", verifyToken, AuthController.logout);
 
-//POST email login
+//Login by email
 router.post("/login", AuthController.emailLogin);
 
-//GET Facebook login
+//Facebook login
 router.get(
   "/facebook",
   passport.authenticate("facebook", {
@@ -38,7 +36,7 @@ router.get(
   AuthController.facebookLoginCallback
 );
 
-//GET Google login
+//Google login
 router.get(
   "/google",
   passport.authenticate("google", { scope: ["profile", "email"] })

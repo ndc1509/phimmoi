@@ -5,7 +5,6 @@ const MovieSchema = new Schema(
     title: {
       type: String,
       required: true,
-      // text : true
     },
     type: {
       type: String,
@@ -24,7 +23,6 @@ const MovieSchema = new Schema(
     plot: {
       type: String,
       required: true,
-      // text : true
     },
     directors: [
       {
@@ -35,7 +33,6 @@ const MovieSchema = new Schema(
         name: {
           type: String,
           required: true,
-          // text : true
         },
       },
     ],
@@ -48,7 +45,6 @@ const MovieSchema = new Schema(
         name: {
           type: String,
           required: true,
-          // text : true
         },
       },
     ],
@@ -61,7 +57,6 @@ const MovieSchema = new Schema(
         name: {
           type: String,
           required: true,
-          // text : true
         },
       },
     ],
@@ -74,7 +69,6 @@ const MovieSchema = new Schema(
         name: {
           type: String,
           required: true,
-          // text : true
         },
       },
     ],

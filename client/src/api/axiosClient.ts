@@ -32,8 +32,7 @@ axiosClient.interceptors.request.use(async (config) => {
 
 axiosClient.interceptors.response.use(
   (res) => {
-    if(res && res.data)
-    return res.data;
+    if (res && res.data) return res.data;
   },
   (error) => {
     return Promise.reject(error);

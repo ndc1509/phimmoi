@@ -1,6 +1,4 @@
 import { Movie, Trailer } from "../../interface";
-import { useAppSelector } from "../../store";
-import { movieSelector } from "../../store/reducers/movieSlice";
 import TrailerItem from "./TrailerItem";
 import "./Trailers.css";
 type TrailersProps = {

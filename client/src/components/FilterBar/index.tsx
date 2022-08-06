@@ -4,24 +4,23 @@ import { getGenres } from "../../api/genreApi";
 import { Genre } from "../../interface";
 import "./FilterBar.css";
 const FilterBar = ({ title = "Movies", getMovies }) => {
-  const [genres, setGenres] = React.useState<Array<Genre> | null>(null);
+  const [genres, setGenres] = React.useState<Genre[]>([]);
 
-  const getData = async () => {
-    try {
-      const data = await getGenres();
-      setGenres(data.genres);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await getGenres();
+        setGenres(data.genres);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     getData();
   }, []);
 
   const [selectedId, setSelectedId] = React.useState<string>("all");
   const handleChange = (event: SelectChangeEvent) => {
     setSelectedId(event.target.value);
-    // setGenres();
   };
 
   React.useEffect(() => {
@@ -50,4 +49,4 @@ const FilterBar = ({ title = "Movies", getMovies }) => {
   );
 };
 
-export default FilterBar;
+export default React.memo(FilterBar);

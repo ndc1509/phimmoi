@@ -1,13 +1,6 @@
 import { Add, Remove } from "@mui/icons-material";
 import { Fab, FormControl, Input, InputLabel } from "@mui/material";
-import React from "react";
-import {
-  Control,
-  Controller,
-  useFieldArray,
-  UseFormRegister,
-} from "react-hook-form";
-import { Movie } from "../../../../../interface";
+import { Controller, useFieldArray } from "react-hook-form";
 
 const FieldArrayTrailer = ({ control, name }) => {
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
@@ -16,9 +9,7 @@ const FieldArrayTrailer = ({ control, name }) => {
       name,
     }
   );
-  React.useEffect(() => {
-    console.log(fields);
-  });
+
   return (
     <>
       {fields.map((field, index) => {

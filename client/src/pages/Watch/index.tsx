@@ -1,5 +1,6 @@
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { CircularProgress } from "@mui/material";
-import React from "react";
+import React, { useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getDetails } from "../../api/movieApi";
 import CommentFB from "../../components/Buttons/CommentFB";
@@ -7,18 +8,23 @@ import Episodes from "../../components/EpisodesList";
 import MoviePlayer from "../../components/MoviePlayer";
 import { Episode, Movie, Season } from "../../interface";
 import "./Watch.css";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const WatchPage = () => {
   const [movie, setMovie] = React.useState<Movie | null>(null);
   const [episode, setEpisode] = React.useState<Episode | null>(null);
   const [season, setSeason] = React.useState<Season | null>(null);
   const { ssId, epId, movieId } = useParams();
-
-  const seasonId: number = (ssId && parseInt(ssId.slice(2))) || 0;
-  const episodeId: number = (epId && parseInt(epId.slice(2))) || 0;
-
   const navigate = useNavigate();
-  const getData = async (_id) => {
+
+  const seasonId: number = useMemo(
+    () => (ssId && parseInt(ssId.slice(2))) || 0,
+    [ssId]
+  );
+  const episodeId: number = useMemo(
+    () => (epId && parseInt(epId.slice(2))) || 0,
+    [epId]
+  );
+ 
+  const getData = async (_id: string) => {
     try {
       const data = await getDetails(_id);
       console.log(data);
@@ -29,6 +35,10 @@ const WatchPage = () => {
     }
   };
 
+  React.useEffect(() => {
+    if (movieId) getData(movieId);
+  }, [movieId, epId, ssId]);
+  
   React.useEffect(() => {
     if (seasonId && episodeId) {
       const selectedSeason = movie?.tvSeriesInfo?.seasons.find(
@@ -42,9 +52,7 @@ const WatchPage = () => {
     }
   }, [movie, episodeId, seasonId]);
 
-  React.useEffect(() => {
-    getData(movieId);
-  }, [movieId, epId, ssId]);
+
   return (
     <div className="watch">
       <div className="watch__title">

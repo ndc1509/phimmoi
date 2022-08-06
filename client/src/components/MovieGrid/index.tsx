@@ -1,23 +1,21 @@
 import React from "react";
-import { getMoviesFiltered, searchMovies } from "../../api/movieApi";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { getMoviesFiltered } from "../../api/movieApi";
 import FilterBar from "../../components/FilterBar";
 import MovieCard from "../../components/MovieCard";
-import { Genre, Movie } from "../../interface";
+import { Movie } from "../../interface";
+import CircularLoading from "../CircularLoading";
 import "./MovieGrid.css";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { CircularProgress } from "@mui/material";
-import { useAppSelector } from "../../store";
-import { movieSelector } from "../../store/reducers/movieSlice";
 
 type MovieGridProps = {
   type?: "movie" | "tvSeries";
 };
 
-const MovieGrid = ({ type}: MovieGridProps) => {
+const MovieGrid = ({ type }: MovieGridProps) => {
   const [movies, setMovies] = React.useState<Movie[]>([]);
   const [genreId, setGenreId] = React.useState<string>("all");
   const [hasMore, setHasMore] = React.useState<boolean>(true);
-  const initMovies = async (genreId: string) => {
+  const initMovies = React.useCallback(async (genreId: string) => {
     try {
       const data = await getMoviesFiltered(type, genreId, 8);
       data.movies.length < 8 ? setHasMore(false) : setHasMore(true);
@@ -26,7 +24,7 @@ const MovieGrid = ({ type}: MovieGridProps) => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
 
   const getMoreMovies = async () => {
     try {
@@ -51,11 +49,7 @@ const MovieGrid = ({ type}: MovieGridProps) => {
       <InfiniteScroll
         next={getMoreMovies}
         hasMore={hasMore}
-        loader={
-          <div className="circle-loading">
-            <CircularProgress />
-          </div>
-        }
+        loader={<CircularLoading />}
         dataLength={movies?.length || 0}
       >
         <div className="movie-grid">

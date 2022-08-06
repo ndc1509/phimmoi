@@ -1,17 +1,12 @@
 import { Add, Remove } from "@mui/icons-material";
 import {
-    Fab,
-    FormControl,
-    FormHelperText,
-    Input,
-    InputLabel
+  Fab,
+  FormControl,
+  FormHelperText,
+  Input,
+  InputLabel,
 } from "@mui/material";
-import React from "react";
-import {
-    Controller,
-    useController,
-    useFieldArray
-} from "react-hook-form";
+import { Controller, useController, useFieldArray } from "react-hook-form";
 
 const FieldArrayEpisodes = ({ control, name }) => {
   const {
@@ -28,9 +23,7 @@ const FieldArrayEpisodes = ({ control, name }) => {
       name,
     }
   );
-  React.useEffect(() => {
-    console.log(fields);
-  });
+
   return (
     <>
       {fields.map((field, index) => {

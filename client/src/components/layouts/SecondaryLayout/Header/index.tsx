@@ -1,6 +1,5 @@
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { AppBar, Button, IconButton, Toolbar } from "@mui/material";
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../../../store";
 import { authSelector } from "../../../../store/reducers/authSlice";

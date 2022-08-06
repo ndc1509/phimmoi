@@ -1,13 +1,10 @@
-import React from "react";
-import DataTable from "../../../components/Admin/DataTable";
-import MovieForm from "../../../components/Admin/MovieForm";
+import { Box } from "@mui/material";
 
 const AdminHomePage = () => {
   return (
-      // <MovieForm />
-      <>
-        <DataTable/>
-      </>
+    <Box>
+      <h3>Welcome to the admin page</h3>
+    </Box>
   );
 };
 

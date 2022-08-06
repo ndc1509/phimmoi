@@ -16,20 +16,21 @@ type AccountProps = {
   picture: string;
 };
 
-const Account = ({ picture = "" }: AccountProps) => {
+const Account = ({ picture }: AccountProps) => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const dispatch = useAppDispatch();
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const dispatch = useAppDispatch()
   const handleLogout = () => {
-    dispatch(logout())
-  }
+    dispatch(logout());
+  };
+
   return (
     <div className="avatar">
       <IconButton onClick={handleClick}>
@@ -68,4 +69,4 @@ const Account = ({ picture = "" }: AccountProps) => {
   );
 };
 
-export default Account;
+export default React.memo(Account);

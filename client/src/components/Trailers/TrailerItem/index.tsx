@@ -24,7 +24,7 @@ const TrailerItem = ({ trailer }: TrailerProps) => {
   return (
     <>
       <div className="trailer-item" onClick={handleOpen}>
-        <Thumbnail link={getVideoThumbnail} styles={{aspectRatio: "16/9"}}/>
+        <Thumbnail link={getVideoThumbnail} styles={{ aspectRatio: "16/9" }} />
         <div className="trailer-item__title">{trailer.title}</div>
       </div>
       <Modal open={open} onClose={handleClose}>

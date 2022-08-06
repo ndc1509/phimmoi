@@ -4,7 +4,7 @@ import { authSelector } from "../../store/reducers/authSlice";
 
 const PrivatePage = ({ children }) => {
   const authState = useAppSelector(authSelector);
-  if (authState.isAuthenticated && authState.user?.role === 'admin') return children;
+  if (authState.isAuthenticated && authState.user?.role === 'ADMIN') return children;
   return <Navigate to="/403" replace />;
 };
 

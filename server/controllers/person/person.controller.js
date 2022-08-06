@@ -72,7 +72,7 @@ exports.PersonController = {
       const person = await Person.create({ name, role });
       res.status(201).json({
         success: true,
-        msg: "Person Added",
+        msg: `${name} Added`,
         person,
       });
     } catch (error) {
@@ -80,8 +80,7 @@ exports.PersonController = {
     }
   },
   updatePerson: async (req, res, next) => {
-    const { _id } = req.params;
-    const { name, role } = req.body;
+    const { _id, name, role } = req.body;
     if (!_id || !name)
       return next(new AppError(HttpError.NOT_FOUND), "Invalid Data");
     try {
@@ -92,7 +91,7 @@ exports.PersonController = {
       );
       res.status(200).json({
         success: true,
-        msg: "Person Updated",
+        msg: `${name} Updated`,
         person,
       });
     } catch (error) {
@@ -106,7 +105,7 @@ exports.PersonController = {
       const person = await Person.findByIdAndDelete(_id);
       res.status(200).json({
         success: true,
-        msg: "Person Deleted",
+        msg: `${person.name} Deleted`,
         person,
       });
     } catch (error) {

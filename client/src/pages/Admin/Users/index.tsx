@@ -1,9 +1,10 @@
 import React from 'react'
+import UserDataTable from '../../../components/Admin/UserDataTable'
 
-const User = () => {
+const AdminUserPage = () => {
   return (
-    <div>User</div>
+    <UserDataTable/>
   )
 }
 
-export default User
+export default AdminUserPage

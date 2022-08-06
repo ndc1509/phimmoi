@@ -55,9 +55,8 @@ const Register = () => {
   const authState = useAppSelector(authSelector);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
   useWatchList();
-
+  
   //Check register
   React.useEffect(() => {
     if (authState.isAuthenticated) navigate("/", { replace: true });

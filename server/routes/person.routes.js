@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { verifyAdminToken } = require("../middlewares/auth.middleware");
 const { PersonController } = require("../controllers/person/person.controller");
 
 //Get all directors
@@ -11,11 +12,12 @@ router.get("/actors", PersonController.getAllActors);
 router.get("/:_id", PersonController.getMoviesByPerson);
 
 //Create new person
-router.post("/", PersonController.createPerson);
+router.post("/", verifyAdminToken, PersonController.createPerson);
 
 //Update a person
-router.put("/:_id", PersonController.updatePerson);
+router.put("/", verifyAdminToken, PersonController.updatePerson);
 
 //Delete a person
-router.delete("/:_id", PersonController.deletePerson);
+router.delete("/:_id", verifyAdminToken, PersonController.deletePerson);
+
 module.exports = router;

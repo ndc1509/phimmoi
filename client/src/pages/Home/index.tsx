@@ -1,23 +1,24 @@
 import { CircularProgress } from "@mui/material";
 import React from "react";
 import { getHomePageData } from "../../api/movieApi";
+import CircularLoading from "../../components/CircularLoading";
 import MoviePreview from "../../components/MoviePreview";
 import MovieSlider from "../../components/MovieSlider";
 import "./Home.css";
 
 const HomePage = () => {
   const [movies, setMovies] = React.useState<any>();
-  const getData = async () => {
-    try {
-      const data = await getHomePageData();
-      console.log(data);
-      setMovies(data.movies);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await getHomePageData();
+        console.log(data);
+        setMovies(data.movies);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     getData();
   }, []);
   if (movies)
@@ -36,11 +37,7 @@ const HomePage = () => {
     );
   else
     return (
-      <div className="home-loading">
-        <div className="circle-loading">
-          <CircularProgress />
-        </div>
-      </div>
+      <CircularLoading/>
     );
 };
 

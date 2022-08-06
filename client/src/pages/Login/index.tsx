@@ -5,7 +5,7 @@ import { authSelector } from "../../store/reducers/authSlice";
 
 const LoginPage = () => {
   const authState = useAppSelector(authSelector);
-  if (authState.isAuthenticated) return <Navigate to="/home" replace />;
+  if (authState.isAuthenticated) return <Navigate to="/" replace />;
   return <Login />;
 };
 

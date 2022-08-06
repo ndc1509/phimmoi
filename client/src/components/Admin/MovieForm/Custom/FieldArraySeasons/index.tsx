@@ -4,10 +4,13 @@ import {
   FormControl,
   FormHelperText,
   Input,
-  InputLabel,
+  InputLabel
 } from "@mui/material";
-import React from "react";
-import { Controller, useController, useFieldArray } from "react-hook-form";
+import {
+  Controller,
+  useController,
+  useFieldArray
+} from "react-hook-form";
 import FieldArrayEpisodes from "../FieldArrayEpisodes";
 
 const FieldArraySeasons = ({ control, name }) => {
@@ -25,9 +28,7 @@ const FieldArraySeasons = ({ control, name }) => {
       name,
     }
   );
-  React.useEffect(() => {
-    console.log(fields);
-  });
+
   return (
     <>
       {fields.map((field, index) => {

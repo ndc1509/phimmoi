@@ -1,6 +1,7 @@
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import { Button } from "@mui/material";
+import React from "react";
 import { SocialPlatform } from "../../../interface/enum";
 import "./SocialLoginButton.css";
 
@@ -30,4 +31,4 @@ const SocialLoginButton = ({ platform }: SocialLoginButtonProps) => {
   );
 };
 
-export default SocialLoginButton;
+export default React.memo(SocialLoginButton);

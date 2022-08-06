@@ -1,7 +1,7 @@
-import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import CircularLoading from "./components/CircularLoading";
 import { LayoutProps } from "./components/layouts/MainLayout";
 import useReauthorize from "./hooks/useReauthorize";
 import Error404Page from "./pages/Error/404";
@@ -62,19 +62,7 @@ function App() {
         <Route path="*" element={<Error404Page />} />
       </Routes>
     );
-  return (
-    <Box
-      sx={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-      }}
-    >
-      <CircularProgress />
-    </Box>
-  );
+  return <CircularLoading />;
 }
 
 export default App;

@@ -1,9 +1,12 @@
 const router = require("express").Router();
-const { verifyToken } = require("../middlewares/auth.middleware");
+const {
+  verifyToken,
+  verifyAdminToken,
+} = require("../middlewares/auth.middleware");
 const { UserController } = require("../controllers/users/user.controller");
 
 //Get all users data
-router.get("/", UserController.getAllUsers);
+router.get("/", verifyAdminToken, UserController.getAllUsers);
 
 //Get a user watch list
 router.get("/watchList", verifyToken, UserController.getUserWatchList);
@@ -20,4 +23,5 @@ router.post("/watchList", verifyToken, UserController.addToWatchList);
 
 //Put remove a movie from user's watch list
 router.put("/watchList", verifyToken, UserController.removeFromWatchList);
+
 module.exports = router;

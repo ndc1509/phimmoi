@@ -17,18 +17,16 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
-  Typography,
+  Typography
 } from "@mui/material";
 import React from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { login } from "../../api/authApi";
-import { getWatchList } from "../../api/myListApi";
 import useWatchList from "../../hooks/useWatchList";
-import { Account, User } from "../../interface";
+import { Account } from "../../interface";
 import { SocialPlatform } from "../../interface/enum";
-
 import { useAppDispatch, useAppSelector } from "../../store";
 import { authSelector } from "../../store/reducers/authSlice";
 import "./Login.css";
@@ -53,11 +51,11 @@ const Login = () => {
     control,
     formState: { errors },
   } = useForm<Account>({ resolver: yupResolver(schema) });
-
   const authState = useAppSelector(authSelector);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   useWatchList();
+
   //Check login
   React.useEffect(() => {
     if (authState.isAuthenticated) navigate("/", { replace: true });
@@ -83,7 +81,6 @@ const Login = () => {
     <div className="login-body">
       <Card className="login-card">
         <CardHeader className="login-card__header" title="Sign In" />
-
         <CardContent className="login-card__content">
           {authState.errorMsg.login && (
             <Alert icon={false} className="login-card__login-error">

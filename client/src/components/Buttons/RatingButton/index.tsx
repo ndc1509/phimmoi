@@ -6,18 +6,19 @@ import useAppSnackBar from "../../../hooks/useAppSnackBar";
 import { useAppSelector } from "../../../store";
 import { authSelector } from "../../../store/reducers/authSlice";
 import "./RatingButton.css";
-const RatingButton = ({ _id }) => {
+const RatingButton = ({ _id }: { _id?: string }) => {
   const showSnackbar = useAppSnackBar();
   const authState = useAppSelector(authSelector);
   const [value, setValue] = React.useState<number | null>(null);
   const [ratingOpened, setRatingOpened] = React.useState<boolean>(false);
-
   const initRate = async () => {
     try {
-      const data = await getUserRating(_id);
-      if (data.rating) {
-        setValue(parseInt(data.rating));
-        setRatingOpened(true);
+      if (_id) {
+        const data = await getUserRating(_id);
+        if (data.rating) {
+          setValue(parseInt(data.rating));
+          setRatingOpened(true);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -26,10 +27,16 @@ const RatingButton = ({ _id }) => {
 
   const handleRate = async (newValue: number | null) => {
     try {
-      if (newValue) {
+      if (newValue && _id) {
         const data = await rateMovie({ _id, score: newValue });
         if (data.success) {
           showSnackbar(`Your rating is ${newValue} stars`, "success");
+        }
+      } 
+      if(!newValue && _id) {
+        const data = await rateMovie({ _id, score: -1 });
+        if (data.success) {
+          showSnackbar(`${data.msg}`, "success");
         }
       }
     } catch (error) {
@@ -55,7 +62,7 @@ const RatingButton = ({ _id }) => {
         className="rating-star"
         size="small"
         onMouseEnter={handleShow}
-        onMouseOver={handleShow} //kho hieu
+        onMouseOver={handleShow}
       >
         <StarBorderOutlined />
       </IconButton>
@@ -82,4 +89,4 @@ const RatingButton = ({ _id }) => {
   );
 };
 
-export default RatingButton;
+export default React.memo(RatingButton);

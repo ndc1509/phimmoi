@@ -1,10 +1,9 @@
-import React from "react";
-import { Movie } from "../../interface";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import { Movie } from "../../interface";
 import MovieCard from "../MovieCard";
 import "./MovieSlider.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 type MovieSliderProps = {
   movies: Array<Movie>;
   title: string;

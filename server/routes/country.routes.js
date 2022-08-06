@@ -1,11 +1,13 @@
+const router = require("express").Router();
+const { verifyAdminToken } = require("../middlewares/auth.middleware");
 const {
   CountryController,
 } = require("../controllers/country/country.controller");
-const router = require("express").Router();
 
 //Get all country
 router.get("/", CountryController.getAllCountries);
+
 //Create a country
-router.post("/", CountryController.createCountry);
+router.post("/", verifyAdminToken, CountryController.createCountry);
 
 module.exports = router;

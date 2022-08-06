@@ -1,6 +1,5 @@
 import { Add as AddIcon, Check as CheckIcon } from "@mui/icons-material";
 import { IconButton, Tooltip } from "@mui/material";
-import { useSnackbar } from "notistack";
 import React from "react";
 import { addToWatchList, removeFromWatchList } from "../../../api/myListApi";
 import useAppSnackBar from "../../../hooks/useAppSnackBar";
@@ -8,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../../store";
 import { authSelector } from "../../../store/reducers/authSlice";
 import { movieSelector } from "../../../store/reducers/movieSlice";
 import "./AddButton.css";
-const AddButton = ({ _id }) => {
+const AddButton = ({ _id }: { _id?: string }) => {
   const showSnackbar = useAppSnackBar();
   const authState = useAppSelector(authSelector);
   const movieState = useAppSelector(movieSelector);
@@ -43,4 +42,4 @@ const AddButton = ({ _id }) => {
     </Tooltip>
   );
 };
-export default AddButton;
+export default React.memo(AddButton);

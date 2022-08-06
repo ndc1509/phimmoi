@@ -1,5 +1,4 @@
 import { Star } from "@mui/icons-material";
-import { useCallback } from "react";
 import { FaImdb } from "react-icons/fa";
 import { Movie } from "../../interface";
 import Tag from "../About/Tag";
@@ -12,12 +11,6 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
   const seasons = movie.tvSeriesInfo?.seasons;
   const stars = movie?.stars;
   const genres = movie?.genres;
-  const roundRating = useCallback((rating: number) => {
-      const rounded = parseFloat((Math.round(rating * 100) / 100).toFixed(1))
-      if(rounded === rating)
-        return rating
-      return rounded
-  }, [])
   return (
     <div className="info">
       <div className="info--left">
@@ -31,12 +24,12 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
         <div className="info__rating">
           <div className="info__rating__imDb">
             <FaImdb /> &nbsp;
-            {movie?.ratings?.imDbRating ? roundRating(movie.ratings.imDbRating) : "0"} / 10
+            {movie?.ratings?.imDbRating ? movie.ratings.imDbRating : "0"} / 10
           </div>
 
           <div className="info__rating__user">
             User Rating:{" "}
-            {movie?.ratings?.userRating ? roundRating(movie.ratings.userRating) : "0"} / 5{" "}
+            {movie?.ratings?.userRating ? movie.ratings.userRating : "0"} / 5{" "}
             <Star />
           </div>
         </div>

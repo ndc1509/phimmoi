@@ -29,7 +29,7 @@ exports.RatingController = {
     }
   },
   submitRating: async (req, res, next) => {
-    const { _id, score = 5 } = req.body;
+    const { _id, score } = req.body;
     const user = req.user;
     try {
       //Find movie
@@ -43,6 +43,32 @@ exports.RatingController = {
           ratings: [],
         });
       //Rating existed
+      //If user removes the rating
+      if (score === -1) {
+        const data = await Rating.findOneAndUpdate(
+          {
+            movie: mongoose.Types.ObjectId(_id),
+            ratings: {
+              $elemMatch: {
+                user: mongoose.Types.ObjectId(user._id),
+              },
+            },
+          },
+          {
+            $pull: {
+              ratings: {
+                user: mongoose.Types.ObjectId(user._id),
+              },
+            },
+          }
+        );
+        console.log(data)
+        return res.status(201).json({
+          success: true,
+          msg: "Rating removed",
+        });
+      }
+
       const existedRating = await Rating.findOneAndUpdate(
         {
           movie: mongoose.Types.ObjectId(_id),
@@ -94,9 +120,13 @@ exports.RatingController = {
         },
       ]);
 
+      let rounded = parseFloat(
+        (Math.round(newScore[0].avg * 100) / 100).toFixed(1)
+      );
+      if (rounded === newScore[0].avg) rounded = newScore[0].avg;
       await Movie.findByIdAndUpdate(_id, {
         $set: {
-          "ratings.userRating": newScore[0].avg,
+          "ratings.userRating": rounded,
         },
       });
     } catch (error) {

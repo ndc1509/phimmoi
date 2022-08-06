@@ -10,7 +10,6 @@ type EpisodeProps = {
 };
 const Episodes = ({ movie, playingEpId, playingSsId }: EpisodeProps) => {
   const seasons = movie?.tvSeriesInfo?.seasons;
-
   const [selectedSeason, setSelectedSeason] = React.useState<
     Season | undefined
   >(seasons?.at(0));

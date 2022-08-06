@@ -1,5 +1,6 @@
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { Button } from "@mui/material";
+import React from "react";
 import "./MoreInfoButton.css";
 const MoreInfoButton = ({ movie }) => {
   return (
@@ -14,4 +15,4 @@ const MoreInfoButton = ({ movie }) => {
   );
 };
 
-export default MoreInfoButton;
+export default React.memo(MoreInfoButton);

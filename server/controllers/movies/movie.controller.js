@@ -82,7 +82,7 @@ exports.MovieController = {
       });
       res.status(201).json({
         success: true,
-        msg: "Movie Added",
+        msg: `${movie.title} Added`,
         movie,
       });
     } catch (error) {
@@ -162,7 +162,7 @@ exports.MovieController = {
       const movie = await Movie.findByIdAndUpdate(_id, updatedMovie);
       res.status(201).json({
         success: true,
-        msg: "Movie Edited",
+        msg: `${updatedMovie.title} Edited`,
         movie,
       });
     } catch (error) {
@@ -174,7 +174,7 @@ exports.MovieController = {
     const { _id } = req.params;
     try {
       const deletedMovie = await Movie.findByIdAndDelete(_id);
-      await Rating.findOneAndDelete({movie: mongoose.Types.ObjectId(_id)})
+      await Rating.findOneAndDelete({ movie: mongoose.Types.ObjectId(_id) });
       res.status(200).json({
         success: true,
         msg: `Movie ${deletedMovie.title} deleted`,
@@ -254,15 +254,15 @@ exports.MovieController = {
           movies = await Movie.find({ type })
             .limit(limit)
             .select(selectedMovieFields)
-            .sort({ _id: 1 });
+            .sort({ _id: -1 });
         } else {
           movies = await Movie.find({
             type,
-            _id: { $gt: lastId },
+            _id: { $lt: lastId },
           })
             .limit(limit)
             .select(selectedMovieFields)
-            .sort({ _id: 1 });
+            .sort({ _id: -1 });
         }
       } else {
         if (!lastId) {
@@ -276,11 +276,11 @@ exports.MovieController = {
           })
             .limit(limit)
             .select(selectedMovieFields)
-            .sort({ _id: 1 });
+            .sort({ _id: -1 });
         } else {
           movies = await Movie.find({
             type,
-            _id: { $gt: lastId },
+            _id: { $lt: lastId },
             genres: {
               $elemMatch: {
                 _id: mongoose.Types.ObjectId(genre),
@@ -289,7 +289,7 @@ exports.MovieController = {
           })
             .limit(limit)
             .select(selectedMovieFields)
-            .sort({ _id: 1 });
+            .sort({ _id: -1 });
         }
       }
       res.status(200).json({
@@ -301,31 +301,7 @@ exports.MovieController = {
       next(error);
     }
   },
-  //   getTVSeriesPaginated: async (req, res, next) => {
-  //     const { lastId, limit } = req.params;
-  //     try {
-  //       let tvSeries;
-  //       if (!lastId) {
-  //         tvSeries = await Movie.find({ type: "tvSeries" })
-  //           .select(selectedMovieFields)
-  //           .limit(limit);
-  //       } else {
-  //         tvSeries = await Movie.find({
-  //           type: "tvSeries",
-  //           _id: { $gt: lastId },
-  //         })
-  //           .select(selectedMovieFields)
-  //           .limit(limit);
-  //       }
-  //       res.status(200).json({
-  //         success: true,
-  //         msg: "All TV-Series",
-  //         tvSeries,
-  //       });
-  //     } catch (error) {
-  //       next(error);
-  //     }
-  //   }
+
   getDetails: async (req, res, next) => {
     const { _id } = req.params;
     if (req)
@@ -353,8 +329,8 @@ exports.MovieController = {
             "$$PRUNE",
           ],
         })
-        .project(selectedMovieFields)
-        .limit(4);
+        .project(selectedMovieFields).sample(4)
+        // .limit(4);
       res.status(200).json({
         success: true,
         msg: "Get movie details",

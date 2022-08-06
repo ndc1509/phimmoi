@@ -1,5 +1,6 @@
 import axiosBase from "./axiosBase";
 
+//Get movie filtered by type genre and paginated
 export const getMoviesFiltered = async (
   type: "movie" | "tvSeries" = "movie",
   genreId: string = "all",
@@ -16,6 +17,7 @@ export const getMoviesFiltered = async (
   }
 };
 
+//Get details of a movie
 export const getDetails = async (_id: string) => {
   try {
     const data = await axiosBase.get<any, any>(`/movie/details/${_id}`);
@@ -25,6 +27,7 @@ export const getDetails = async (_id: string) => {
   }
 };
 
+//Search movie
 export const searchMovies = async (
   query: string,
   lastIds?: string[],
@@ -43,6 +46,7 @@ export const searchMovies = async (
   }
 };
 
+//Get data to show on Homepage
 export const getHomePageData = async () => {
   try {
     const data = await axiosBase.get<any, any>("/movie/home");

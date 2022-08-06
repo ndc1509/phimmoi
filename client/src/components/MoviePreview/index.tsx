@@ -20,7 +20,6 @@ const MoviePreview = ({ movie, homepage = false }: MoviePreviewProps) => {
   const playerRef = React.useRef<ReactPlayer>(null);
   const [playing, setPlaying] = React.useState<boolean>(false);
   const [muted, setMuted] = React.useState<boolean>(true);
-
   const handleSound = () => {
     setMuted(!muted);
   };

@@ -61,4 +61,36 @@ const verifyRefreshToken = async (req, res, next) => {
   }
 };
 
-module.exports = { verifyRefreshToken, verifyToken };
+//Check admin access token
+const verifyAdminToken = async (req, res, next) => {
+  const authHeader = req.header("Authorization");
+  const accessToken = authHeader && authHeader.split(" ")[1];
+
+  //Token not found
+  if (!accessToken)
+    return next(new AppError(HttpError.NOT_FOUND, "Token not found"));
+
+  try {
+    //Decode token
+    const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
+
+    //User role
+    const user = await User.findOne({
+      _id: decoded._id,
+      email: decoded.email,
+      username: decoded.username,
+      role: Role.ADMIN,
+      //accessToken,
+    });
+    //User not found
+    if (!user)
+      return next(new AppError(HttpError.FORBIDDEN, "Admin not found"));
+    //Forward
+    req.user = user;
+    next();
+  } catch (error) {
+    next(new AppError(HttpError.FORBIDDEN, "Invalid token", error));
+  }
+};
+
+module.exports = { verifyRefreshToken, verifyToken, verifyAdminToken };

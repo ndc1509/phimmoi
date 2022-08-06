@@ -52,21 +52,9 @@ const About = ({ movie }: AboutProps) => {
             />
           ))}
         </div>
-        {/* <div className="about__item">
-          <span>
-            Tags: &nbsp;
-            {movie?.genres?.map((genre, index) => (
-              <Tag
-                key={index}
-                data={genre}
-                last={index + 1 === movie.genres?.length && true}
-              />
-            ))}
-          </span>
-        </div> */}
         <div className="about__item">
           <span>Maturity rating: &nbsp;</span>
-          <span id="content-rating">{movie?.contentRating}</span>
+          <span className="content-rating">{movie?.contentRating}</span>
         </div>
       </div>
     </div>

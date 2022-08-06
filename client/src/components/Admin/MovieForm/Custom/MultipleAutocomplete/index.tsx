@@ -1,15 +1,15 @@
 import {
-    Autocomplete,
-    FormControl,
-    FormHelperText,
-    TextField
+  Autocomplete,
+  FormControl,
+  FormHelperText,
+  TextField,
 } from "@mui/material";
-import { Control, useController } from "react-hook-form";
-import { Country, Genre, Movie, Person } from "../../../../../interface";
+import { useController } from "react-hook-form";
+import { Country, Genre, Person } from "../../../../../interface";
 
 type MultipleAutocompleteProps = {
   data: Person[] | Genre[] | Country[];
-  control: Control<Movie, object>;
+  control: any;
   name: any;
   label: string;
 };

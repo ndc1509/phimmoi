@@ -2,15 +2,21 @@ import { Box, Button } from "@mui/material";
 import React from "react";
 import { deleteMovie } from "../../../api/adminApi";
 import { getDetails } from "../../../api/movieApi";
-import DataTable from "../../../components/Admin/DataTable";
+import DataTable from "../../../components/Admin/MovieDataTable";
 import MovieForm from "../../../components/Admin/MovieForm";
 import useAppSnackBar from "../../../hooks/useAppSnackBar";
 import { Movie } from "../../../interface";
 
-const AdminMovies = () => {
+const AdminMoviesPage = () => {
   const [openForm, setOpenForm] = React.useState<boolean>(false);
   const [editMovie, setEditMovie] = React.useState<Movie | null>(null);
   const showSnackbar = useAppSnackBar();
+
+  React.useEffect(() =>  {
+    if(!openForm)
+      setEditMovie(null)
+  }, [openForm])
+
   const onEdit = async (movieId: string) => {
     try {
       if (movieId) {
@@ -30,7 +36,7 @@ const AdminMovies = () => {
         data.success
           ? showSnackbar(data.msg, "success")
           : showSnackbar(data.msg, "error");
-        return data.success as boolean
+        return data.success as boolean;
       }
     } catch (error) {
       console.log(error);
@@ -67,4 +73,4 @@ const AdminMovies = () => {
   else return <></>;
 };
 
-export default AdminMovies;
+export default AdminMoviesPage;
