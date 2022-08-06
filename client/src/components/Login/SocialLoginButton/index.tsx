@@ -11,7 +11,7 @@ type SocialLoginButtonProps = {
 
 const SocialLoginButton = ({ platform }: SocialLoginButtonProps) => {
   const handleSocialLogin = () => {
-    window.open(`http://localhost:5000/api/v1/auth/${platform}`, "_self");
+    window.open(`https://ndc-phimmoi.herokuapp.com/api/v1/auth/${platform}`, "_self");
   };
   return (
     <Button
