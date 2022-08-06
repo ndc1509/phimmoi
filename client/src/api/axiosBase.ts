@@ -1,7 +1,7 @@
 import axios from "axios";
 import queryString from "query-string";
 const axiosBase = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "https://ndc-phimmoi.herokuapp.com/api/v1",
   headers: {
     "Content-type": "application/json",
   },
