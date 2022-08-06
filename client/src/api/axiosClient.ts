@@ -4,7 +4,7 @@ import queryString from "query-string";
 import axiosBase from "./axiosBase";
 
 const axiosClient = axios.create({
-  baseURL: "https://ndc-phimmoi.herokuapp.com/api/v1/",
+  baseURL: "https://ndc-phimmoi.herokuapp.com/api/v1",
   headers: {
     "Content-type": "application/json",
   },
