@@ -31,6 +31,32 @@ exports.RatingController = {
   submitRating: async (req, res, next) => {
     const { _id, score } = req.body;
     const user = req.user;
+    const updateRating = async () => {
+      const newScore = await Rating.aggregate([
+        {
+          $match: {
+            movie: mongoose.Types.ObjectId(_id),
+          },
+        },
+        {
+          $addFields: {
+            avg: {
+              $avg: "$ratings.score",
+            },
+          },
+        },
+      ]);
+
+      let rounded = parseFloat(
+        (Math.round(newScore[0].avg * 100) / 100).toFixed(1)
+      );
+      if (rounded === newScore[0].avg) rounded = newScore[0].avg;
+      await Movie.findByIdAndUpdate(_id, {
+        $set: {
+          "ratings.userRating": rounded,
+        },
+      });
+    }
     try {
       //Find movie
       const movie = await Rating.findOne({
@@ -63,6 +89,7 @@ exports.RatingController = {
           }
         );
         console.log(data)
+        updateRating()
         return res.status(201).json({
           success: true,
           msg: "Rating removed",
@@ -105,30 +132,7 @@ exports.RatingController = {
         success: true,
         msg: "Thanks for your rating",
       });
-      const newScore = await Rating.aggregate([
-        {
-          $match: {
-            movie: mongoose.Types.ObjectId(_id),
-          },
-        },
-        {
-          $addFields: {
-            avg: {
-              $avg: "$ratings.score",
-            },
-          },
-        },
-      ]);
-
-      let rounded = parseFloat(
-        (Math.round(newScore[0].avg * 100) / 100).toFixed(1)
-      );
-      if (rounded === newScore[0].avg) rounded = newScore[0].avg;
-      await Movie.findByIdAndUpdate(_id, {
-        $set: {
-          "ratings.userRating": rounded,
-        },
-      });
+      updateRating()
     } catch (error) {
       next(error);
     }
