@@ -11,7 +11,7 @@ module.exports = function () {
                 clientID: process.env.FB_KEY,
                 clientSecret: process.env.FB_SECRET,
                 callbackURL:
-                    "/api/v1/auth/facebook/callback",
+                    "https://ndc-phimmoi.herokuapp.com/api/v1/auth/facebook/callback",
                 profileFields: ["id", "displayName", "photos", "email"],
             },
             async (accessToken, refreshToken, profile, done) => {
@@ -47,7 +47,7 @@ module.exports = function () {
                 clientID: process.env.GOOGLE_KEY,
                 clientSecret: process.env.GOOGLE_SECRET,
                 callbackURL:
-                    "/api/v1/auth/google/callback",
+                    "https://ndc-phimmoi.herokuapp.com/api/v1/auth/google/callback",
             },
             async (accessToken, refreshToken, profile, done) => {
                 try {
