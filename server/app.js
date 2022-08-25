@@ -28,7 +28,7 @@ require("./controllers/auth/passport")();
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://ndc1509:Cuong42hangvoi@cluster.eowik.mongodb.net/phimmoi?retryWrites=true&w=majority"
+      "mongodb+srv://{username}:{password}@cluster.eowik.mongodb.net/phimmoi?retryWrites=true&w=majority"
     );
     console.log("DB connected");
   } catch (error) {
