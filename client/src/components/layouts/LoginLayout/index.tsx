@@ -7,16 +7,16 @@ import Header from "./Header";
 import "./LoginLayout.css";
 
 const LoginLayout: React.FunctionComponent<LayoutProps> = ({
-  children = <Login />,
+    children = <Login />,
 }: LayoutProps) => {
-  return (
-    <div className="login-wrapper">
-      <Background />
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </div>
-  );
+    return (
+        <div className="login-wrapper">
+            <Background />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+        </div>
+    );
 };
 
 export default LoginLayout;

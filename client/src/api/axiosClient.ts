@@ -4,7 +4,7 @@ import queryString from "query-string";
 import axiosBase from "./axiosBase";
 
 const axiosClient = axios.create({
-  baseURL: "https://ndc-phimmoi.herokuapp.com/api/v1",
+  baseURL: `${process.env.URL}api/v1`,
   headers: {
     "Content-type": "application/json",
   },
@@ -25,7 +25,7 @@ axiosClient.interceptors.request.use(async (config) => {
     if (!config.headers) throw new Error("Cant't set headers");
     config.headers.Authorization = `Bearer ${accessToken}`;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
   return config;
 });

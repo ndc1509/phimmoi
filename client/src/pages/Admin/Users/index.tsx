@@ -1,10 +1,8 @@
-import React from 'react'
-import UserDataTable from '../../../components/Admin/UserDataTable'
+import React from "react";
+import UserDataTable from "@components/Admin/UserDataTable";
 
 const AdminUserPage = () => {
-  return (
-    <UserDataTable/>
-  )
-}
+    return <UserDataTable />;
+};
 
-export default AdminUserPage
+export default AdminUserPage;

@@ -3,19 +3,19 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 export type LayoutProps = {
-  children: React.ReactNode;
+    children: React.ReactNode;
 };
 
 const MainLayout: React.FunctionComponent<LayoutProps> = ({
-  children,
+    children,
 }: LayoutProps) => {
-  return (
-    <div>
-      <Header />
-      <main> {children}</main>
-      <Footer />
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <main> {children}</main>
+            <Footer />
+        </div>
+    );
 };
 
 export default MainLayout;

@@ -45,10 +45,10 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
   },
   "eslintConfig": {
     "extends": [
@@ -70,6 +70,7 @@
   },
   "devDependencies": {
     "@types/react-lazy-load-image-component": "^1.5.2",
-    "@types/video.js": "^7.3.42"
+    "@types/video.js": "^7.3.42",
+    "@craco/craco": "^5.9.0"
   }
 }
