@@ -6,7 +6,7 @@ const CircularLoading = () => {
         <Box
             sx={{
                 width: "100%",
-                minHeight: "100vh",
+                minHeight: "20vh",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",

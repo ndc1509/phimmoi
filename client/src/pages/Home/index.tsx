@@ -2,6 +2,7 @@ import { movieApi } from "@api/movieApi";
 import CircularLoading from "@components/CircularLoading";
 import MoviePreview from "@components/MoviePreview";
 import MovieSlider from "@components/MovieSlider";
+import { Box, CircularProgress } from "@mui/material";
 import React from "react";
 import "./Home.css";
 
@@ -43,7 +44,21 @@ const HomePage = () => {
                 </div>
             </div>
         );
-    else return <CircularLoading />;
+    else
+        return (
+            <Box
+                sx={{
+                    width: "100%",
+                    minHeight: "100vh",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    backgroundColor: "#141414",
+                }}
+            >
+                <CircularProgress />
+            </Box>
+        );
 };
 
 export default HomePage;
